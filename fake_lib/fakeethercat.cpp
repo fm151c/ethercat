@@ -585,7 +585,7 @@ int ecrt_slave_config_reg_pdo_entry(
                 {
                     if (bit_position)
                         *bit_position = offset.bits;
-                    else if (!offset.bits)
+                    else if (offset.bits)
                     {
                         std::cerr << "Pdo Entry is not byte aligned but bit offset is ignored!\n";
                         return -1;
