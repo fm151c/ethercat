@@ -90,7 +90,7 @@ to exchange process data.
 The direction setting decides which instance writes and which reads from
 shared memory.
 
-For instance, emulating a digial output works in the following way:
+For instance, emulating a digital output works in the following way:
 Create another real time application with the same slave information
 as your control application.
 Then, replace all EC_DIR_INPUT with EC_DIR_OUTPUT and vice versa.
