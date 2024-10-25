@@ -157,6 +157,9 @@ void ec_slave_init(
 
     // create state machine object
     ec_fsm_slave_init(&slave->fsm, slave);
+
+    slave->error_code = 0;
+    slave->abort_code = 0;
 }
 
 /****************************************************************************/

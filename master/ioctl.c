@@ -291,6 +291,9 @@ static ATTRIBUTES int ec_ioctl_slave(
     ec_ioctl_strcpy(data.order, slave->sii.order);
     ec_ioctl_strcpy(data.name, slave->sii.name);
 
+    data.error_code = slave->error_code;
+    data.abort_code = slave->abort_code;
+
     up(&master->master_sem);
 
     if (copy_to_user((void __user *) arg, &data, sizeof(data)))

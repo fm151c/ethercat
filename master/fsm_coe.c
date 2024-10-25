@@ -60,7 +60,7 @@
 /****************************************************************************/
 
 // prototypes for private methods
-void ec_canopen_abort_msg(const ec_slave_t *, uint32_t);
+void ec_canopen_abort_msg(ec_slave_t *, uint32_t);
 int ec_fsm_coe_check_emergency(const ec_fsm_coe_t *, const uint8_t *, size_t);
 int ec_fsm_coe_prepare_dict(ec_fsm_coe_t *, ec_datagram_t *);
 int ec_fsm_coe_dict_prepare_desc(ec_fsm_coe_t *, ec_datagram_t *);
@@ -151,11 +151,13 @@ const ec_code_msg_t sdo_abort_messages[] = {
 /** Outputs an SDO abort message.
  */
 void ec_canopen_abort_msg(
-        const ec_slave_t *slave, /**< Slave. */
+        ec_slave_t *slave, /**< Slave. */
         uint32_t abort_code /**< Abort code to search for. */
         )
 {
     const ec_code_msg_t *abort_msg;
+
+    slave->abort_code = abort_code;
 
     for (abort_msg = sdo_abort_messages; abort_msg->code; abort_msg++) {
         if (abort_msg->code == abort_code) {

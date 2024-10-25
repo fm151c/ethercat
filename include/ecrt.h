@@ -470,6 +470,8 @@ typedef struct {
     uint8_t sync_count; /**< Number of sync managers. */
     uint16_t sdo_count; /**< Number of SDOs. */
     char name[EC_MAX_STRING_LENGTH]; /**< Name of the slave. */
+    uint16_t error_code;
+    uint32_t abort_code;
 } ec_slave_info_t;
 
 /****************************************************************************/

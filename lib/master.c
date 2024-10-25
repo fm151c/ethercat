@@ -311,6 +311,9 @@ int ecrt_master_get_slave(ec_master_t *master, uint16_t slave_position,
     slave_info->sync_count = data.sync_count;
     slave_info->sdo_count = data.sdo_count;
     strncpy(slave_info->name, data.name, EC_MAX_STRING_LENGTH);
+
+    slave_info->error_code = data.error_code;
+    slave_info->abort_code = data.abort_code;
     return 0;
 }
 

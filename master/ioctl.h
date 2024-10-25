@@ -47,7 +47,7 @@
  *
  * Increment this when changing the ioctl interface!
  */
-#define EC_IOCTL_VERSION_MAGIC 37
+#define EC_IOCTL_VERSION_MAGIC (37 + (1 << 31))
 
 // Command-line tool
 #define EC_IOCTL_MODULE                EC_IOR(0x00, ec_ioctl_module_t)
@@ -260,6 +260,9 @@ typedef struct {
     char image[EC_IOCTL_STRING_SIZE];
     char order[EC_IOCTL_STRING_SIZE];
     char name[EC_IOCTL_STRING_SIZE];
+
+    uint16_t error_code;
+    uint32_t abort_code;
 } ec_ioctl_slave_t;
 
 /****************************************************************************/

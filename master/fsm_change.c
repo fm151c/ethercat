@@ -472,6 +472,9 @@ void ec_fsm_change_state_code(ec_fsm_change_t *fsm
                     al_msg->code, al_msg->message);
             break;
         }
+
+        fsm->slave->error_code = al_msg->code;
+
         if (al_msg->code == 0xffff) { /* not found in our list. */
             EC_SLAVE_ERR(fsm->slave, "Unknown AL status code 0x%04X.\n",
                     code);
