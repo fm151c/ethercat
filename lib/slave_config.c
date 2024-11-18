@@ -40,6 +40,7 @@
 void ec_slave_config_add_sdo_request(ec_slave_config_t *, ec_sdo_request_t *);
 void ec_slave_config_add_reg_request(ec_slave_config_t *, ec_reg_request_t *);
 void ec_slave_config_add_voe_handler(ec_slave_config_t *, ec_voe_handler_t *);
+void ec_slave_config_add_soe_request(ec_slave_config_t *, ec_soe_request_t *);
 
 /****************************************************************************/
 
@@ -625,7 +626,7 @@ ec_sdo_request_t *ecrt_slave_config_create_sdo_request(ec_slave_config_t *sc,
 
 /****************************************************************************/
 
-inline void ec_slave_config_add_soe_request(ec_slave_config_t *sc,
+void ec_slave_config_add_soe_request(ec_slave_config_t *sc,
         ec_soe_request_t *req)
 {
     if (sc->first_soe_request) {
